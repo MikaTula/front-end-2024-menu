@@ -1,0 +1,8 @@
+@mixin active-indicator() {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: 28px;
+}
+

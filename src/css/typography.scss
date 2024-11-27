@@ -1,0 +1,36 @@
+@use "sass:map";
+
+$typography-map: (
+        "headline": (
+                "line-height": 20rem,
+                "size": 14rem,
+                "letter-spacing": 0.1rem,
+                "weight": 500
+        ),
+        "label": (
+                "line-height": 20px,
+                "size": 14rem,
+                "letter-spacing": 0.1rem,
+                "weight": 500
+        ),
+);
+
+@mixin _private-apply-font($font-style) {
+  $font-map: map.get($typography-map, $font-style);
+
+  font-size: map.get($font-map, "size");
+  font-weight: map.get($font-map, "weight");
+  letter-spacing: map.get($font-map, "tracking");
+  line-height: map.get($font-map, "line-height");
+}
+
+
+@mixin text-headline {
+  @include _private-apply-font("headline");
+}
+
+@mixin text-label {
+  @include _private-apply-font("label");
+}
+
+
